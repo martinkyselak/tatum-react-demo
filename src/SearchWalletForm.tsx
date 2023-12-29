@@ -2,7 +2,7 @@ import { FieldError, useForm } from 'react-hook-form';
 import { SearchCriteria } from './api/types';
 
 type Props = {
-  onSearch: (search: SearchCriteria) => void;
+  onSearch: (address: SearchCriteria) => void;
 };
 
 export function SearchWalletForm({ onSearch }: Props) {
