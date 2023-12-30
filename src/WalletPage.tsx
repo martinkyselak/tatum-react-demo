@@ -36,7 +36,11 @@ export function WalletPage() {
   }
 
   if (isLoading) {
-    return <div className="w-96 mx-auto mt-6">Loading ...</div>;
+    return (
+      <main className="max-w-xs ml-auto mr-auto">
+        <div className="py-2 text-sm">Loading ...</div>
+      </main>
+    );
   }
   return (
     <main className="max-w-xs ml-auto mr-auto">
