@@ -13,11 +13,12 @@ export function SearchWalletForm({ onSearch }: Props) {
   } = useForm<SearchCriteria>();
 
   const fieldStyle = 'flex flex-col mb-2';
+
   function getEditorStyle(fieldError: FieldError | undefined) {
-    return fieldError ? 'border-red-500' : 'border-slate-300';
+    return fieldError ? 'border border-red-500' : 'border border-slate-700';
   }
   return (
-    <form noValidate className="border-b py-4" onSubmit={handleSubmit(onSearch)}>
+    <form noValidate className="border-b py-2" onSubmit={handleSubmit(onSearch)}>
       <div className={fieldStyle}>
         <label htmlFor="address">Wallet Address</label>
         <input
@@ -32,7 +33,7 @@ export function SearchWalletForm({ onSearch }: Props) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="mt-2 h-10 px-6 font-semibold bg-slate-700 text-white self-start"
+          className="mt-2 h-10 px-4 font-semibold bg-slate-700 text-white self-start"
         >
           Search
         </button>
