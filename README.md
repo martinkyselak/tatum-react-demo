@@ -1,46 +1,20 @@
-# Getting Started with Create React App
+# Tatum React Demo Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The purpose of this simple application is to get familiar with [React](https://react.dev/) framework, [TypeScript](https://www.typescriptlang.org/) and [Tatum API](https://docs.tatum.io/) in addition to couple of other frameworks/libraries.
 
-## Available Scripts
+Application allows user to get Ethereum wallet data identified by its address. When valid wallet address is entered, Tatum API is used to fetch balance and last 10 transactions related to the wallet. 
 
-In the project directory, you can run:
+## Used Frameworks/Libraries
 
-### `npm start`
+This list covers main frameworks/libraries used in the application together with a short list of parts that were learned during development. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [React](https://react.dev/), for instance components, hooks (useState, useEffect, useForm)
+* [Jest](https://jestjs.io/) and React Testing library for writing unit and component tests
+* [ESLint](https://eslint.org/) for linting and [Prettier](https://prettier.io/) for code formatting
+* [Tailwind CSS ](https://tailwindcss.com/) for basic styling of the application
+* [GitHub Actions](https://docs.github.com/en/actions) for basic CI pipeline covering build, test, deploy
+* [Azure Static Web Apps](https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-react?pivots%253Dgithub) for hosting and automatic deployment using GitHub Actions
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## References
+* [Learn React with TypeScript - Second Edition](https://www.packtpub.com/product/learn-react-with-typescript-second-edition/9781804614204) ([GitHub repository](https://github.com/PacktPublishing/Learn-React-with-TypeScript-2nd-Edition))
+* [Learning GitHub Actions for DevOps CI/CD](https://www.packtpub.com/product/learning-github-actions-for-devops-cicd-video/9781837639137) ([GitHub repository](https://github.com/PacktPublishing/Learning-GitHub-Actions-for-DevOps-CI-CD))
