@@ -24,6 +24,7 @@ export function SearchWalletForm({ onSearch }: Props) {
         <input
           type="text"
           id="address"
+          placeholder="Wallet address..."
           {...register('address', { required: 'You must enter a wallet address' })}
           className={getEditorStyle(errors.address)}
         />

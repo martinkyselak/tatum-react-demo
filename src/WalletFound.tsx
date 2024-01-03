@@ -19,7 +19,7 @@ export function WalletFound({ walletData }: Props) {
       <h3 className="text-l font-bold pt-2">Transactions</h3>
       <ul className="list-none">
         {walletData[2].map((transaction) => (
-          <li key={transaction.address} className="pb-2">
+          <li key={transaction.hash} className="pb-2">
             <p className="text-sm truncate">Hash: {transaction.hash}</p>
             <p className="text-sm">Amount: {transaction.amount}</p>
             <p className="text-sm">Timestamp: {new Date(transaction.timestamp).toLocaleString()}</p>
