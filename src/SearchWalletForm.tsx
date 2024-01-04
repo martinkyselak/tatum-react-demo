@@ -18,7 +18,7 @@ export function SearchWalletForm({ onSearch }: Props) {
     return fieldError ? 'border border-red-500' : 'border border-slate-700';
   }
   return (
-    <form noValidate className="border-b py-2" onSubmit={handleSubmit(onSearch)}>
+    <form noValidate className="border-b my-3 sm:my-4" onSubmit={handleSubmit(onSearch)}>
       <div className={fieldStyle}>
         <input
           type="text"

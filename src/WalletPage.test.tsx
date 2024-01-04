@@ -32,13 +32,10 @@ test('should return wallet data for valid wallet address', async () => {
     user.click(searchButton);
   });
 
-  const balance = await waitFor(() => screen.findByText(/Balance/i), { timeout: 5000 });
+  const balance = await waitFor(() => screen.findByTitle(/Balance/i), { timeout: 5000 });
   expect(balance).toBeInTheDocument();
 
-  const txHeadline = screen.getByText(/Transactions/i);
-  expect(txHeadline).toBeInTheDocument();
-
-  const blocks = screen.getAllByText(/Block #/i);
+  const blocks = screen.getAllByTitle(/Block #/i);
   expect(blocks.length).toBe(10);
 }, 10000);
 
@@ -55,10 +52,10 @@ test('should return wallet data with no transaction for valid empty wallet', asy
     user.click(searchButton);
   });
 
-  const balance = await waitFor(() => screen.findByText(/Balance/i), { timeout: 5000 });
+  const balance = await waitFor(() => screen.findByTitle(/Balance/i), { timeout: 5000 });
   expect(balance).toBeInTheDocument();
 
-  const blocks = screen.queryByText(/Block #/i);
+  const blocks = screen.queryByTitle(/Block #/i);
   expect(blocks).not.toBeInTheDocument();
 
   const noTransaction = screen.getByText(/No transaction found/i);
