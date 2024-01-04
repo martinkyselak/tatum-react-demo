@@ -20,13 +20,12 @@ export function SearchWalletForm({ onSearch }: Props) {
   return (
     <form noValidate className="border-b py-2" onSubmit={handleSubmit(onSearch)}>
       <div className={fieldStyle}>
-        <label htmlFor="address">Wallet Address</label>
         <input
           type="text"
           id="address"
           placeholder="Wallet address..."
           {...register('address', { required: 'You must enter a wallet address' })}
-          className={getEditorStyle(errors.address)}
+          className={'p-2 ' + getEditorStyle(errors.address)}
         />
         <ValidationError fieldError={errors.address} />
       </div>
@@ -34,7 +33,7 @@ export function SearchWalletForm({ onSearch }: Props) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="mt-2 h-10 px-4 font-semibold bg-slate-700 text-white self-start"
+          className="mt-2 p-2 font-semibold bg-slate-700 text-white self-start"
         >
           Search
         </button>
