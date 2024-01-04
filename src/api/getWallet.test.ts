@@ -6,7 +6,7 @@ import { getWalletData } from './getWallet';
 test('should return error for non-existing address', async () => {
   const result = await getWalletData('non-existing-address');
   expect(result).toStrictEqual([Status.ERROR, null, null]);
-});
+}, 10000);
 
 test('should return valid response for existing address', async () => {
   const result = await getWalletData('0xb794f5ea0ba39494ce839613fffba74279579268');
@@ -17,4 +17,4 @@ test('should return valid response for existing address', async () => {
 
   expect(result[2]).toBeDefined();
   expect(result[2].length).toBe(10);
-});
+}, 10000);

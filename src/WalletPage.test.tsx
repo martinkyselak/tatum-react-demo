@@ -58,9 +58,11 @@ test('should return wallet data with no transaction for valid empty wallet', asy
   const balance = await waitFor(() => screen.findByText(/Balance/i), { timeout: 5000 });
   expect(balance).toBeInTheDocument();
 
-  const blocks = screen.getByText(/Block #/i);
+  const blocks = screen.queryByText(/Block #/i);
   expect(blocks).not.toBeInTheDocument();
-  // TODO get no transaction test here
+
+  const noTransaction = screen.getByText(/No transaction found/i);
+  expect(noTransaction).toBeInTheDocument();
 }, 10000);
 
 test('should display error message when empty string is searched for', async () => {
