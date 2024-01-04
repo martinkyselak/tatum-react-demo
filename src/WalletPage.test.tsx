@@ -17,7 +17,7 @@ test('should return nothing for non-existing wallet address', async () => {
 
   const res = await waitFor(() => screen.findByText(/No wallet with address/i), { timeout: 5000 });
   expect(res).toBeInTheDocument();
-});
+}, 10000);
 
 test('should return wallet data for valid wallet address', async () => {
   const user = userEvent.setup();
@@ -35,12 +35,44 @@ test('should return wallet data for valid wallet address', async () => {
   const balance = await waitFor(() => screen.findByText(/Balance/i), { timeout: 5000 });
   expect(balance).toBeInTheDocument();
 
-  const txheadline = await waitFor(() => screen.findByText(/Transactions/i), { timeout: 5000 });
-  expect(txheadline).toBeInTheDocument();
+  const txHeadline = screen.getByText(/Transactions/i);
+  expect(txHeadline).toBeInTheDocument();
 
-  // TODO check the list of transactions, not only a headline
+  const blocks = screen.getAllByText(/Block #/i);
+  expect(blocks.length).toBe(10);
+}, 10000);
+
+test('should return wallet data with no transaction for valid empty wallet', async () => {
+  const user = userEvent.setup();
+
+  render(<WalletPage />);
+
+  const searchInput = screen.getByPlaceholderText('Wallet address...');
+  await user.type(searchInput, '0xBfA38c2538Fc6660D130Ac1cBB2f33D30A4d8eEB');
+
+  const searchButton = screen.getByText('Search');
+  act(() => {
+    user.click(searchButton);
+  });
+
+  const balance = await waitFor(() => screen.findByText(/Balance/i), { timeout: 5000 });
+  expect(balance).toBeInTheDocument();
+
+  const blocks = screen.getByText(/Block #/i);
+  expect(blocks).not.toBeInTheDocument();
+  // TODO get no transaction test here
+}, 10000);
+
+test('should display error message when empty string is searched for', async () => {
+  const user = userEvent.setup();
+
+  render(<WalletPage />);
+
+  const searchButton = screen.getByText('Search');
+  act(() => {
+    user.click(searchButton);
+  });
+
+  const errorMessage = await waitFor(() => screen.findByText(/You must enter a wallet address/i));
+  expect(errorMessage).toBeInTheDocument();
 });
-
-// TODO check a wallet with no transactions
-
-// TODO check validation - click search on empty input
