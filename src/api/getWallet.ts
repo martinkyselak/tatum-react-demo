@@ -17,6 +17,7 @@ export async function getWalletData(
   });
   const transactions: ResponseDto<AddressTransaction[]> = await tatum.address.getTransactions({
     address: address,
+    transactionTypes: ['native'],
   });
 
   return [balance.status, balance.data, transactions.data];
