@@ -7,6 +7,7 @@ import {
   AddressTransaction,
   Status,
 } from '@tatumio/tatum';
+import { Rate } from '@tatumio/tatum/dist/src/service/rate/rates.dto';
 
 export async function getWalletData(
   address: string,
@@ -21,4 +22,10 @@ export async function getWalletData(
   });
 
   return [balance.status, balance.data, transactions.data];
+}
+
+export async function getExchangeRate(): Promise<ResponseDto<Rate>> {
+  const tatum = await TatumSDK.init<Ethereum>({ network: Network.ETHEREUM });
+
+  return await tatum.rates.getCurrentRate('ETH', 'EUR');
 }
